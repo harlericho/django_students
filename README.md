@@ -29,7 +29,7 @@ Computer Version:
 
 To use the project on your machine, you must have the following installed:
 
-* They have pyhton greater than 3.8.0
+* They have python greater than 3.8.0
 * Have pip installed.
 * Have virtualenv or venv installed.
 
