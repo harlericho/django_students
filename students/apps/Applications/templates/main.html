@@ -1,0 +1,49 @@
+<div class="card border-primary mb-3" id="classMain">
+    <div class="card-header bg-transparent border-primary text-primary">
+        <a href="add/" class="btn btn-primary btn-sm" title="Add a student">
+            <i class="fas fa-plus-square"></i>
+        </a>
+        Student
+    </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title"><i class="fas fa-book"></i> Students listing</h5>
+        <div class="table table-responsive">
+            <table class="table table-bordered table-inverse" id="table">
+                <thead class="thead-inverse text-primary">
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Avatar</th>
+                        <th colspan="2">Options</th>
+                    </tr>
+                </thead>
+                <tbody class="text-white">
+                    {% for i in students %}
+                    <tr>
+                        <td scope="row">{{forloop.counter}}</td>
+                        <td>{{i.first_name}}</td>
+                        <td>{{i.last_name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.age}}</td>
+                        <td>
+                            <img src="{{i.imagen.url}}" alt="imagen" width="80" height="80">
+                        </td>
+                        <td>
+                            <a href="edit/{{i.id}}" class="btn btn-primary btn-sm" title="Edit a student">
+                                <i class="fas fa-edit text-white"></i>
+                            </a>
+                            <a href="delete/{{i.id}}" class="btn btn-danger btn-sm btnDelete" title="Delete a student">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer bg-transparent border-primary text-primary">Footer</div>
+</div>

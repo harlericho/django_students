@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block title %}
+Django - Form - Update
+{% endblock title %}
+
+{% block content %}
+<div class="card border-primary mb-3" id="classMain">
+    <div class="card-header bg-transparent border-primary text-primary">
+        <a href="/" class="btn btn-primary btn-sm" title="back to list">
+            <i class="fa fa-backspace"></i>
+        </a>
+        Back to list
+    </div>
+    <div class="card-body text-primary">
+        <h5 class="card-title"><i class="fas fa-user-alt-slash"></i> Students form</h5>
+        <form action="/update/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" id="id" name="id" value="{{student.id}}">
+            <div class="mb-3 text-primary">
+                <label for="first_name" class="form-label">Fist Name</label>
+                <input type="text" class="form-control text-white bg-dark" id="first_name" name="first_name"
+                    value="{{student.first_name}}" placeholder="First name" autofocus required>
+            </div>
+            <div class="mb-3 text-primary">
+                <label for="Last_name" class="form-label">Last Name</label>
+                <input type="text" class="form-control text-white bg-dark" id="Last_name" name="last_name"
+                    value="{{student.last_name}}" placeholder="Last name" required>
+            </div>
+            <div class="mb-3 text-primary">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control text-white bg-dark" id="email" name="email"
+                    value="{{student.email}}" placeholder="Email@email.com" required>
+            </div>
+            <div class="mb-3 text-primary">
+                <label for="age" class="form-label">Age</label>
+                <input type="number" max="99" min="18" class="form-control text-white bg-dark" id="price" name="age"
+                value="{{student.age}}"
+                    placeholder="18" required>
+            </div>
+            <div class="mb-3 text-primary">
+                <label for="preview" class="form-label">Preview</label>
+                <img src="{{student.imagen.url}}" alt="imagen" width="80" height="80">
+                <input type="hidden" name="imagenInput" value="{{student.imagen}}">
+            </div>
+            <div class="mb-3 text-primary">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="file" class="form-control text-white bg-dark" id="imagen" name="imagen">
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-retweet"></i>
+                Update
+            </button>
+        </form>
+    </div>
+    <div class="card-footer bg-transparent border-primary text-primary">Footer</div>
+</div>
+
+{% endblock content %}
